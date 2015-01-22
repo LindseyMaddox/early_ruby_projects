@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">Video Charts</div>
+    </div>
+</nav>
+<h3 class="blue">Chart I - # Of Videos Using Core Muscle Groups</h3>
+</br>
+<figure class="chart">
+  <canvas id="chart-0" width=300 height=300>
+  	<%= doughnut_chart @data %>
+  </canvas>
+</figure>
+	
+</br>
+<div class ="container">	
+	<div class="row">
+		<div class ="col-sm-5">
+			<button type="button" class="btn btn-default"><%= link_to 'Video List', videos_path %></button>
+			<button type="button" class="btn btn-default"><%= link_to 'Workout Record', workouts_path %></button>
+	</div>
+</div>

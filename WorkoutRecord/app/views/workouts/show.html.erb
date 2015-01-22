@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">Workouts</div>
+     </div>
+</nav>
+<div class="container">
+    <div class="row header">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5"><%= @workout.date_completed %> Workout </div>
+    </div>
+	</br>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-6">Did <em><%= @workout.video.name %></em> for <%= @workout.time %> minutes.</div>
+    </div>
+</div>
+
+</br>
+<div class ="container">  
+  <div class="row">
+  	<div class="col-sm-1"></div>
+    <div class ="col-sm-5">
+      <button type="button" class="btn btn-default"><%= link_to 'Edit Workout', edit_workout_path(@workout) %></button>
+      <button type="button" class="btn btn-default"><%= link_to 'Workout Record', videos_path %></button>
+    </div>
+  </div>
+</div>

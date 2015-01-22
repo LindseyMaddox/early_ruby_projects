@@ -1,0 +1,50 @@
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">Workouts</div>
+     </div>
+</nav>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    
+<div class='row'>
+    <div class='col-sm-12'>
+      <p>
+        <form>
+          <legend>Search</legend>
+          <div class='col-xs-4'>
+            <input type='text' class='form-control' value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword' >
+          </div>
+        </form>
+      </p>
+    </div>
+  </div>
+</br>
+
+<div class ="container">	
+	<div class="row">
+    	<div class="col-sm-2"></div>
+   		<div class="col-sm-9 blue"><h3>Workout Videos</h3></div>
+  	</div>
+	<div class="row">
+		<div class ="col-sm-2">
+				<button type="button" class="btn btn-default"><%= link_to 'New Video', new_video_path %></button>
+				</br>
+				</br>
+				<button type="button" class="btn btn-default"><%= link_to 'Workout Record', workouts_path %></button>
+				</br>
+				</br>
+				<button type="button" class="btn btn-default"><%= link_to 'Muscles Worked Chart', charts_videos_path %></button>
+		</div>
+		<div class = "col-sm-7 boxed">
+
+			<div class="row header">
+				<div class ="col-sm-4">Video</div>
+				<div class="col-sm-3">Category</div>
+				<div class="col-sm-5">Core Muscles Worked</div>
+			</div>
+			<div id="videos">
+				<%= render @videos %>
+			</div>
+		<div class="col-sm-1"></div>
+	</div>
+</div>

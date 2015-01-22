@@ -1,0 +1,60 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+ 
+INTRODUCTION
+
+I created the app to serve as a substitue for an Excel based workout record. A rails app offerred increased functionality, better visualization options, and an easier way to dynamically update data.
+The record can expand to encompass anything about someone's workout practice -- what workouts they do, what muscles are worked, how many calories they burn, how they feel during a workout, etc.
+___
+_
+WHAT DOES THE APP DO?
+
+Contains Two Tables - Workouts & Videos -- which have a belongs to / has many association
+
+Each Table has an Index page which lists the items in that table
+  --Workouts is currently set to filter only the last 14 days
+
+Workouts Index features an ajax powered "new workout form" which pops up when you click the button
+  --New entries are appending to the list after submission (you see this happen)
+
+Videos Index has a search field where you can query key columns in the videos table
+---To optimize query speed, search is run over a keywords column, which is auto-populated upon saving a video
+
+CHARTS
+  1.) VIDEO TIME PIE CHART - Originally showed a pie chart with each video and how long it had been used (i.e. the sum of "time" for each workout associated with the video), but decided to do it by series instead. This is not a column in the database, so they code is kind of clunky
+  2.) AVERAGE TIME BAR CHART - shows the average time for each workout in which a video is used
+  3.) MUSCLED WORKED FREQUENCY PIE CHART - 'core-muscles-worked' is part of the videos table, and its rows includes multiple items, separated by commas. I might use this code to create a 'next workout generator' based on muscle groups recently worked.
+
+Has consistent navigation & styling throughout - using divs & a twitter bootstrap grid
+
+________________
+
+WHAT'S COMING?
+
+PRIORITIES:
+ 
+  1.) FILTERS TO ITEMS IN WORKOUT RECORD LIST - currently the model is filtered to 2 weeks, but needs dynamic functionality -- allow users to select the date range for filtering results.
+  2.) Next workout recommender - recommendation engine based on recently completed workouts (using existing video entries)
+  3.) Improve color schema and design - the site is a little white and sizing of items could be improved somewhat.
+  4.) Add user table? - may save for next app
+
+BUGS  / Known Issues
+
+    1.) can't override font(link) colors for bootstrap button primary - figure out what to use instead
+    2.) why does adding javascript cause the ruby charts not to generate? - shared variables? shared canvases?
+   
+ON HOLD
+
+     1.) figure out how to get a bar or line chart to work from an external JS file
+      --not sure if charts.js ROR allows for this
+     2.) Chart Improvements
+          a.) Improve Legends (e.g. show the corresponding color)
+          b.) change locations - including overriding the legend placement (put on right of chart)
+              & deciding on optimal placement for multiple charts
+          c.) add information to the hover box 
+          d.) possibly reorder (don't know if that's possible)
+     3.) create a hover class and access it in a js file
+        --use it to show the full name when there is an abbreviated name
+     4.)  line chart with amounts by day and week - use in new app
+  
