@@ -1,0 +1,19 @@
+.month-best {
+	display: none;
+	font: #1975FF;
+}
+.continent-filter {
+	display: none;
+	}
+
+.winter {
+	background-color: #E6E6E6;
+	font-weight: bold;
+}
+
+div {
+  &.boxed {
+  border: solid black thin;
+  margin-right: 5px;
+  }
+}

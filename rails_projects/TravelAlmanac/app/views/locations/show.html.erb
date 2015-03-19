@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">Travel Almanac</div>
+     </div>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class= "col-sm-2"></div>
+		<div class= "col-sm-5"><h3> <%= @location.name %> Information </h3></div>
+	</div>
+	<div class="row">
+		<div class= "col-sm-2"></div>
+		<div class="col-sm-5"><strong>Country: </strong><%= @location.country %></div>
+	</div>
+	<div class="row">
+		<div class= "col-sm-2"></div>
+		<div class="col-sm-5"><strong>Region:</strong> <%= @location.region %></div>
+	</div>
+	<div class="row">
+		<div class= "col-sm-2"></div>
+		<div class= "col-sm-5"> <strong>When to Visit:</strong> 
+			<% if @location.months.length == 12 %>
+					Year Round
+				<% else %>
+					<% count = 0 %>
+						<% @location.months.each do |month| %>
+							<% count +=1 %>
+							<% if count < @location.months.length %>
+								<%= month.name %>, 
+							<% else %>
+								and <%= month.name %>
+							<% end %>
+						<% end %>
+				<% end %>
+		</div>
+	</div>
+</br>
+	<div class="row">
+		<div class="col-sm-2"></div>
+    		<button class="btn btn-primary"><%= link_to 'Location Listing', locations_path %>
+    		</button>
+	</div>
+</div>

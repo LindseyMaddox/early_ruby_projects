@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  abbreviated_name: MyString
+  type: 
+  core_muscles_worked: MyString
+  notes: MyText
+
+two:
+  name: MyString
+  abbreviated_name: MyString
+  type: 
+  core_muscles_worked: MyString
+  notes: MyText

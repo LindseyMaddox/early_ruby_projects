@@ -1,0 +1,41 @@
+INTRODUCTION
+
+I created the app to serve as a substitue for an Excel based workout record. A rails app offerred increased functionality, better visualization options, and an easier way to dynamically update data.
+
+The record can expand to encompass anything about someone's workout practice -- what workouts they do, what muscles are worked, how many calories they burn, how they feel during a workout, etc.
+
+Guests can login to a sample dataset using -  guest / pa$$w0rd
+___
+
+SCHEMA INFO
+
+Contains Four Models -- Workouts, Programs, Videos, & Users 
+
+  WORKOUTS
+
+  Designed to keep track of which workouts are done on specific days. Logs the video, user, and date completed.
+
+  VIDEOS
+
+  Provides information about various workout videos or activities. Contains core muscles worked, type (cardio, circuit training, etc.), length and a program ID that links to a program grouping.
+
+  PROGRAMS
+
+  A parent category for various video / activity types (e.g. "Jillian Michaels Workouts", "sports")
+
+  USER
+
+
+KEY PAGES
+
+  Workouts Index 
+  --Can filter to 7, 14, or last 30 days
+
+  Videos Index 
+  --search by keyword or filter by length
+
+  Videos Recommender 
+  --Recommends videos based on muscles worked in recent workouts
+  --Gives summary of most worked muscles.
+  --Defaults to past 4 days and can filter to 7, 10 or 14 days
+  --Option to remove a muscle group from the recommendation results

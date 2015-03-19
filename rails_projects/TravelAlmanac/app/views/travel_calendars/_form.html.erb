@@ -1,0 +1,28 @@
+<%= form_for(@travel_calendar) do |f| %>
+  <% if @travel_calendar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel_calendar.errors.count, "error") %> prohibited this travel_calendar from being saved:</h2>
+
+      <ul>
+      <% @travel_calendar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class= "field">
+  <%= f.label :name %></br>
+  <%= f.collection_select :location_id, Location.all, :id, :name %>
+</div>
+<% @months.each do |month| %>
+  <div class="checkbox">
+      <label>
+       <%= f.check_box_tag "location[month_ids][]", month.id %>
+     </label>
+  </div>
+<% end %>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
