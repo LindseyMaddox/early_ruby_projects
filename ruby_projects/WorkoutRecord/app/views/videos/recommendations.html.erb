@@ -1,0 +1,158 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="navbar-header">Workouts</div>
+          </div>
+          <div class="col-sm-8"></div>
+          <div class="col-sm-1">
+            <button type="button" class="btn btn-info navbar-btn btn-xs"><%= link_to "Log Out", log_out_path %></button>
+          </div>
+        </div>
+    </div>
+</nav>
+<div class ="container"> 
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <h3 class="blue">Next Workout Recommendation</h3>
+    </div>
+  </div>
+</br>
+<% if logged_in? %>
+   <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">In the past few days, you've been working your
+          <% x = 0 %>
+          <% @overworked.each do |item| %>
+            <% if @overworked.length == 1 && @max_frequency > 1 %>
+                 <strong><%= item %></strong> a lot.
+            <% elsif item == @overworked.last && @max_frequency > 1 %>
+                and <strong><%= item %></strong> a lot.
+            <% elsif @overworked.length == 1 && @max_frequency == 1 %>
+                 <strong><%= item %></strong>.
+            <% elsif item == @overworked.last && @max_frequency == 1 %>
+                and <strong><%= item %></strong>.
+            <% elsif x == 0 && @overworked.length == 2 %>
+              <strong><%= item %></strong>
+            <% else %>
+                <strong><%= item %></strong>,
+            <% end %>
+            <% x += 1 %>
+          <% end %>
+          <% x = 0 %>
+          <% @worked_hard.each do |item| %>
+            <% if @worked_hard.length == 0 %>
+                next
+            <% elsif @worked_hard.length == 1 %>
+                  You've also worked your <strong><%= item %></strong> some.
+            <% elsif item == @worked_hard.last %>
+                and <strong><%= item %></strong> some.
+            <% elsif x == 0 && @worked_hard.length == 2 %>
+                You've also worked your <strong><%= item %></strong>
+            <% elsif x == 0 && @worked_hard.length > 2 %>
+                 You've also worked your <strong><%= item %></strong>,
+            <% else %>
+              <strong><%= item %></strong>,
+            <% end %>
+            <% x += 1 %>
+          <% end %>
+      </div>
+  </div>
+</br>
+   <div class="row">
+    <div class='col-sm-2'></div>
+    <div class="col-sm-10">
+        <a href='#' id='show-detail' class='btn btn-info'>See more details</a>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-5 workout-detail">
+          <div class="row title">
+            <div class="col-sm-5">Video Name</div>
+            <div class="col-sm-6">Core Muscles Worked</div>
+          </div>
+        <% @video_muscles.each do |key,value| %>
+             <div class="row <%= "highlight" if key == @recent_workouts.name %>">
+                  <div class="col-sm-5"><%= key %></div>
+                  <div class="col-sm-6"><%= value %></div>
+              </div>
+        <% end %>
+    </div>
+    <div class="col-sm-5"></div>
+  </div>
+
+</br>
+<% if @max_frequency > 1 %>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">To balance out your muscle groups, try one of these videos: </div>
+  </div>
+</br>
+ <% if @recommendations.length == 0 %>
+     <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8"> <em>No videos meet your criteria.</em></div>
+      </div>
+  <% else %>
+      <% @recommendations.each do |workout| %>
+          <div class="row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-8">
+                  <strong><%= link_to workout.name, workout %></strong>   (<%= workout.core_muscles_worked %>)
+              </div>
+          </div>
+      <% end %>
+  <% end %>
+<% else %>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">You've been working out your muscles evenly the past few days. Visit the <%= link_to "Video List", videos_path %> to see all available videos. </div>
+  </div>
+<% end %>
+   </br>
+  <div class="row">
+    <div class ="col-sm-3"></div>
+    <div class ="col-sm-6">
+      <% @date_ranges.each do |date| %>
+        <div class="row">
+          <%= link_to "Base my recommendations on the last #{date} days", recommendations_videos_path(date_range: date) %>
+        </div>
+     <% end %>
+    </div>
+  </div>
+</br>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          Remove a muscle group
+          <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu" role="menu">
+                <% @muscle_removal_options.each do |muscle| %>
+                   <li><%= link_to " #{muscle}", recommendations_videos_path(muscle_removal_requests: muscle) %></li>
+                <% end %>
+          </ul>
+      </div>
+    </div>
+  </div>
+</br>
+<% else %>
+  <div class="row">
+     <div class="col-sm-3"></div>
+     <div class ="col-sm-9">You must be <%= link_to "logged in", log_in_path %> to see this page.</div>
+  </div>
+<% end %>
+  <div class="row">
+     <div class="col-sm-3"></div>
+     <div class ="col-sm-9">
+        <button type="button" class="btn btn-primary"><%= link_to 'Workout Record', workouts_path %></button>
+        <button type="button" class="btn btn-primary"><%= link_to 'Video List', videos_path %></button>
+    </div>
+  </div>
+</div> 

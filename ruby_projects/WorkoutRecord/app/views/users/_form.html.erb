@@ -1,0 +1,34 @@
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-4">
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.text_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :weight %><br />
+        <%= f.text_field :weight %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+  </div>
+</div>
+<% end %>
