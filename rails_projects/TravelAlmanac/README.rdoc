@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Why build a Travel Almanac?
 
-Things you may want to cover:
+	A quick scan of your favorite social media site will immediately illustrate the vast amount of sites and articles suggesting where and when to travel to myriad destinations. I've visited more of those sites than I care to reveal, and over the years I've accumulated a lot of discrete references. While the articles are fun to read and occasionally can actually be useful tools, combined, they also cause information overload. Whenever I'd attempt to narrow down trip ideas, I'd tried to remember ALL THE THINGS. Which, unless you have the working memory of a computer, is kind of impossible. I wanted to have a snapshot of all this research; I wanted to condense all the details into a digestible summary; and I wanted it in one place.
 
-* Ruby version
+	After attempting to create an excel spreadsheet with the information, I realized the material was much better suited for a rails app.
 
-* System dependencies
+App Design
 
-* Configuration
+	When I'm thinking about travel, I usually focus on either a time of year or destination(s). I structured the program to do the same.
 
-* Database creation
+	The month section allows you to see which destinations are good options for specific months.  The location section tells you when to visit certain destinations.
 
-* Database initialization
+	In addition to simply listing this information, the app also includes summary information (e.g. when is the 'best time to travel') and notable details (e.g. 'January is one of the few times a year you can visit Torres del Paine').
 
-* How to run the test suite
+Audience
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+	This app was built specifically as a tool for my personal travel planning; as such, the list of destinations are those that interest me -- not a general survey of popular destinations.
