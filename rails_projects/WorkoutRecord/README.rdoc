@@ -1,10 +1,10 @@
 INTRODUCTION
 
-I created the app to serve as a substitue for an Excel based workout record. A rails app offerred increased functionality, better visualization options, and an easier way to dynamically update data.
+I created the app to serve as a substitute for an Excel based workout record. A rails app offered increased functionality, better visualization options, and an easier way to dynamically update data.
 
 The record can expand to encompass anything about someone's workout practice -- what workouts they do, what muscles are worked, how many calories they burn, how they feel during a workout, etc.
 
-Guests can login to a sample dataset using -  guest / pa$$w0rd
+Guests can log into a sample dataset using -  guest / pa$$w0rd
 ___
 
 SCHEMA INFO
