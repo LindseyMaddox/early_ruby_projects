@@ -1,8 +1,0 @@
-<div class="row <%= "winter" if month.season=="Winter" %>">
-    <% month.locations.each do |location| %>
-         <div class = "col-sm-3"><%= month.name %></div>
-         <div class = "col-sm-4"><%= link_to truncate(location.name, length: 17), location %></div>
-         <div class="col-sm-3"><%= location.country %></div>
-          <div class = "col-sm-2"><%= truncate(location.region, length: 20, separator: ' ') %></div>
-     <% end %>
-</div>
